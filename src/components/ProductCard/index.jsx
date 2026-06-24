@@ -1,12 +1,12 @@
 import { Card, Image, Name, Description, Button } from './styles'
 
-function ProductCard({ product, addToCart }) {
+function ProductCard({ product, openModal }) {
   return (
     <Card>
       <Image src={product.foto} alt={product.nome} />
       <Name>{product.nome}</Name>
       <Description>{product.descricao}</Description>
-      <Button onClick={addToCart}>Adicionar ao carrinho</Button>
+      <Button onClick={() => openModal(product)}>Adicionar ao carrinho</Button>
     </Card>
   )
 }
