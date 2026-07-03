@@ -14,16 +14,18 @@ export const HeroText = styled.h2`
   font-size: 36px;
   font-weight: 900;
   line-height: 42px;
-  padding-bottom: 40px;
+  padding: 0 0 40px;
 `
 
 export const ListSection = styled.section`
   padding: 80px 0 120px;
+  background: #fff8f2;
 `
 
 export const RestaurantList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 472px);
-  justify-content: space-between;
+  justify-content: center;
+  column-gap: 32px;
   row-gap: 48px;
 `

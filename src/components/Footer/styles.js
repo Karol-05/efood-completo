@@ -6,15 +6,10 @@ export const FooterArea = styled.footer`
   text-align: center;
 `
 
-export const FooterLogo = styled.div`
-  width: fit-content;
-  margin: 0 auto 24px;
-  border: 2px solid #e66767;
-  color: #e66767;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1;
-  padding: 6px 12px;
+export const FooterLogo = styled.img`
+  width: 125px;
+  margin: 0 auto 32px;
+  display: block;
 `
 
 export const Icons = styled.div`
@@ -24,15 +19,22 @@ export const Icons = styled.div`
   margin-bottom: 80px;
 `
 
-export const Icon = styled.span`
-  color: #e66767;
-  font-size: 18px;
+export const Icon = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
 `
 
 export const Text = styled.p`
   max-width: 480px;
   margin: 0 auto;
   font-size: 10px;
-  line-height: 14px;
+  line-height: 22px;
   color: #e66767;
 `

@@ -1,15 +1,46 @@
-import { FooterArea, FooterLogo, Icons, Icon, Text } from './styles'
+import logo from '../../assets/logo.png'
+import instagram from '../../assets/instagram.png'
+import facebook from '../../assets/facebook.png'
+import twitter from '../../assets/twitter.png'
+
+import {
+  FooterArea,
+  FooterLogo,
+  Icons,
+  Icon,
+  Text
+} from './styles'
 
 function Footer() {
   return (
     <FooterArea>
       <div className="container">
-        <FooterLogo>efood</FooterLogo>
+        <FooterLogo
+          src={logo}
+          alt="eFood"
+        />
 
         <Icons>
-          <Icon>◎</Icon>
-          <Icon>●</Icon>
-          <Icon>◉</Icon>
+          <Icon href="#">
+            <img
+              src={instagram}
+              alt="Instagram"
+            />
+          </Icon>
+
+          <Icon href="#">
+            <img
+              src={facebook}
+              alt="Facebook"
+            />
+          </Icon>
+
+          <Icon href="#">
+            <img
+              src={twitter}
+              alt="Twitter"
+            />
+          </Icon>
         </Icons>
 
         <Text>

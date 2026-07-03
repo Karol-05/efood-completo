@@ -1,51 +1,47 @@
 import styled, { css } from 'styled-components'
+import fundo from '../../assets/fundo-header.png'
 
-export const Bar = styled.div`
-  background-color: #ffebd9;
+export const Bar = styled.header`
+  background-color: #fff8f2;
+  background-image: url(${fundo});
+  background-repeat: repeat;
 `
 
 export const Content = styled.div`
-  min-height: 186px;
+  min-height: 384px;
+
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding-top: 64px;
-  position: relative;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(230, 103, 103, 0.08) 0px,
-    rgba(230, 103, 103, 0.08) 2px,
-    transparent 2px,
-    transparent 18px
-  );
 
   ${({ home }) =>
     !home &&
     css`
-      min-height: 116px;
-      padding-top: 40px;
+      min-height: 186px;
+
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      background-image: none;
     `}
 `
 
-export const Logo = styled.div`
-  border: 2px solid #e66767;
-  color: #e66767;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1;
-  padding: 6px 12px;
+export const Logo = styled.img`
+  width: 125px;
+  height: auto;
 `
 
-export const LeftText = styled.span`
+export const LeftText = styled.div`
   font-size: 18px;
   font-weight: 900;
-  color: #e66767;
+
+  a {
+    color: #e66767;
+    text-decoration: none;
+  }
 `
 
-export const RightText = styled.span`
+export const RightText = styled.div`
   font-size: 18px;
   font-weight: 900;
   color: #e66767;

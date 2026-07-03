@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Bar, Content, LeftText, Logo, RightText } from './styles'
+import logo from '../../assets/logo.png'
+
+import {
+  Bar,
+  Content,
+  LeftText,
+  Logo,
+  RightText
+} from './styles'
 
 function HeaderBar({ home = false, cartItems = 0 }) {
   return (
@@ -7,14 +15,20 @@ function HeaderBar({ home = false, cartItems = 0 }) {
       <div className="container">
         <Content home={home}>
           {home ? (
-            <Logo>efood</Logo>
+            <Logo src={logo} alt="eFood" />
           ) : (
             <>
               <LeftText>
                 <Link to="/">Restaurantes</Link>
               </LeftText>
-              <Logo>efood</Logo>
-              <RightText>{cartItems} produto(s) no carrinho</RightText>
+
+              <Link to="/">
+                <Logo src={logo} alt="eFood" />
+              </Link>
+
+              <RightText>
+                {cartItems} produto(s) no carrinho
+              </RightText>
             </>
           )}
         </Content>
