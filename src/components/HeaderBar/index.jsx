@@ -4,35 +4,43 @@ import logo from '../../assets/logo.png'
 import {
   Bar,
   Content,
-  LeftText,
   Logo,
-  RightText
+  HeroTitle,
+  LeftText,
+  RightText,
+  TopBar
 } from './styles'
 
 function HeaderBar({ home = false, cartItems = 0 }) {
+  if (home) {
+    return (
+      <Bar>
+        <Content>
+          <Logo src={logo} alt="eFood" />
+
+          <HeroTitle>
+            Viva experiências gastronômicas
+            <br />
+            no conforto da sua casa
+          </HeroTitle>
+        </Content>
+      </Bar>
+    )
+  }
+
   return (
     <Bar>
-      <div className="container">
-        <Content home={home}>
-          {home ? (
-            <Logo src={logo} alt="eFood" />
-          ) : (
-            <>
-              <LeftText>
-                <Link to="/">Restaurantes</Link>
-              </LeftText>
+      <TopBar className="container">
+        <LeftText as={Link} to="/">
+          Restaurantes
+        </LeftText>
 
-              <Link to="/">
-                <Logo src={logo} alt="eFood" />
-              </Link>
+        <Logo src={logo} alt="eFood" />
 
-              <RightText>
-                {cartItems} produto(s) no carrinho
-              </RightText>
-            </>
-          )}
-        </Content>
-      </div>
+        <RightText>
+          {cartItems} produto(s) no carrinho
+        </RightText>
+      </TopBar>
     </Bar>
   )
 }

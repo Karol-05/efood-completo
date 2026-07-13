@@ -1,48 +1,55 @@
-import styled, { css } from 'styled-components'
-import fundo from '../../assets/fundo-header.png'
+import styled from 'styled-components'
+import background from '../../assets/fundo.png'
 
 export const Bar = styled.header`
-  background-color: #fff8f2;
-  background-image: url(${fundo});
+  background-color: #ffebd9;
+  background-image: url(${background});
   background-repeat: repeat;
 `
 
 export const Content = styled.div`
-  min-height: 384px;
+  height: 384px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  ${({ home }) =>
-    !home &&
-    css`
-      min-height: 186px;
+  gap: 138px;
+`
 
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    `}
+export const TopBar = styled.div`
+  height: 186px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const Logo = styled.img`
   width: 125px;
-  height: auto;
+  height: 58px;
 `
 
-export const LeftText = styled.div`
-  font-size: 18px;
-  font-weight: 900;
+export const HeroTitle = styled.h2`
+  width: 540px;
 
-  a {
-    color: #e66767;
-    text-decoration: none;
-  }
-`
-
-export const RightText = styled.div`
-  font-size: 18px;
-  font-weight: 900;
   color: #e66767;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 42px;
+  text-align: center;
+`
+
+export const LeftText = styled.span`
+  color: #e66767;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+`
+
+export const RightText = styled.span`
+  color: #e66767;
+  font-size: 18px;
+  font-weight: 900;
 `
