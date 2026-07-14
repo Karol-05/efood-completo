@@ -1,12 +1,26 @@
-import { Card, Image, Name, Description, Button } from './styles'
+import {
+  Card,
+  Image,
+  Name,
+  Description,
+  Button
+} from './styles'
 
 function ProductCard({ product, openModal }) {
   return (
     <Card>
-      <Image src={product.foto} alt={product.nome} />
+      <Image
+        src={product.foto}
+        alt={product.nome}
+      />
+
       <Name>{product.nome}</Name>
+
       <Description>{product.descricao}</Description>
-      <Button onClick={() => openModal(product)}>Adicionar ao carrinho</Button>
+
+      <Button onClick={() => openModal(product)}>
+        Mais detalhes
+      </Button>
     </Card>
   )
 }

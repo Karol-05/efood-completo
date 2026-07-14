@@ -3,36 +3,35 @@ import styled from 'styled-components'
 export const FooterArea = styled.footer`
   background-color: #ffebd9;
   padding: 40px 0;
-  text-align: center;
-`
-
-export const FooterLogo = styled.div`
-  width: fit-content;
-  margin: 0 auto 24px;
-  border: 2px solid #e66767;
-  color: #e66767;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1;
-  padding: 6px 12px;
-`
-
-export const Icons = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const Logo = styled.img`
+  width: 125px;
+  margin-bottom: 32px;
+`
+
+export const Social = styled.div`
+  display: flex;
   gap: 8px;
   margin-bottom: 80px;
 `
 
-export const Icon = styled.span`
-  color: #e66767;
-  font-size: 18px;
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 `
 
 export const Text = styled.p`
-  max-width: 480px;
-  margin: 0 auto;
+  width: 480px;
+
   font-size: 10px;
   line-height: 14px;
+  font-weight: 400;
+
   color: #e66767;
+  text-align: center;
 `

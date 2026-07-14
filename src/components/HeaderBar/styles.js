@@ -1,52 +1,60 @@
 import styled, { css } from 'styled-components'
+import fundo from '../../assets/images/fundo.png'
 
-export const Bar = styled.div`
+export const Bar = styled.header`
   background-color: #ffebd9;
+  background-image: url(${fundo});
+  background-repeat: repeat;
 `
 
-export const Content = styled.div`
-  min-height: 186px;
+export const Container = styled.div`
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 64px;
-  position: relative;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(230, 103, 103, 0.08) 0px,
-    rgba(230, 103, 103, 0.08) 2px,
-    transparent 2px,
-    transparent 18px
-  );
+  flex-direction: column;
+  align-items: center;
 
   ${({ home }) =>
-    !home &&
-    css`
-      min-height: 116px;
-      padding-top: 40px;
-      justify-content: space-between;
-      align-items: center;
-      background-image: none;
-    `}
+    home
+      ? css`
+          height: 384px;
+          justify-content: center;
+        `
+      : css`
+          height: 186px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        `}
 `
 
-export const Logo = styled.div`
-  border: 2px solid #e66767;
-  color: #e66767;
-  font-size: 38px;
+export const Logo = styled.img`
+  width: 125px;
+  height: 58px;
+`
+
+export const HeroText = styled.h2`
+  margin-top: 138px;
+
+  font-size: 36px;
   font-weight: 900;
-  line-height: 1;
-  padding: 6px 12px;
+  line-height: 42px;
+
+  color: #e66767;
+  text-align: center;
 `
 
 export const LeftText = styled.span`
+  color: #e66767;
   font-size: 18px;
   font-weight: 900;
-  color: #e66767;
 `
 
 export const RightText = styled.span`
+  color: #e66767;
   font-size: 18px;
   font-weight: 900;
-  color: #e66767;
+  cursor: pointer;
 `

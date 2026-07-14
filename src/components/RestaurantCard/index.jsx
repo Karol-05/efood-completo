@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import estrela from '../../assets/images/estrela.png'
+
 import {
   Card,
   CardImage,
@@ -7,7 +9,9 @@ import {
   Content,
   Top,
   Title,
+  RatingContainer,
   Rating,
+  Star,
   Description,
   Button
 } from './styles'
@@ -15,7 +19,10 @@ import {
 function RestaurantCard({ restaurant }) {
   return (
     <Card>
-      <CardImage src={restaurant.capa} alt={restaurant.titulo} />
+      <CardImage
+        src={restaurant.capa}
+        alt={restaurant.titulo}
+      />
 
       <Tags>
         {restaurant.destacado && <Tag>Destaque da semana</Tag>}
@@ -25,7 +32,15 @@ function RestaurantCard({ restaurant }) {
       <Content>
         <Top>
           <Title>{restaurant.titulo}</Title>
-          <Rating>{restaurant.nota} ★</Rating>
+
+          <RatingContainer>
+            <Rating>{restaurant.avaliacao}</Rating>
+
+            <Star
+              src={estrela}
+              alt="Estrela"
+            />
+          </RatingContainer>
         </Top>
 
         <Description>{restaurant.descricao}</Description>

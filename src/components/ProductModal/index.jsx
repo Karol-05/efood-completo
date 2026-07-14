@@ -14,7 +14,7 @@ function ProductModal({ product, onClose, addToCart }) {
   if (!product) return null
 
   const handleAddToCart = () => {
-    addToCart()
+    addToCart(product)
     onClose()
   }
 
@@ -23,7 +23,10 @@ function ProductModal({ product, onClose, addToCart }) {
       <ModalContainer>
         <CloseButton onClick={onClose}>×</CloseButton>
 
-        <Image src={product.foto} alt={product.nome} />
+        <Image
+          src={product.foto}
+          alt={product.nome}
+        />
 
         <Content>
           <Title>{product.nome}</Title>
@@ -33,8 +36,9 @@ function ProductModal({ product, onClose, addToCart }) {
           <Portion>Serve: {product.porcao}</Portion>
 
           <AddButton onClick={handleAddToCart}>
-            Adicionar ao carrinho - R${' '}
-            {product.preco.toFixed(2).replace('.', ',')}
+            Adicionar ao carrinho - R$ {product.preco
+              .toFixed(2)
+              .replace('.', ',')}
           </AddButton>
         </Content>
       </ModalContainer>

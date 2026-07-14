@@ -1,25 +1,39 @@
-import Footer from '../../components/Footer'
+import { useEffect, useState } from 'react'
+
 import HeaderBar from '../../components/HeaderBar'
+import Footer from '../../components/Footer'
 import RestaurantCard from '../../components/RestaurantCard'
-import restaurants from '../../data/restaurants'
-import { HeroText, ListSection, RestaurantList } from './styles'
+
+import API_URL from '../../services/api'
+
+import {
+  ListSection,
+  RestaurantList
+} from './styles'
 
 function Home() {
+  const [restaurants, setRestaurants] = useState([])
+
+  useEffect(() => {
+    fetch(`${API_URL}/restaurantes`)
+      .then((response) => response.json())
+      .then((data) => {
+        setRestaurants(data)
+      })
+  }, [])
+
   return (
     <>
       <HeaderBar home />
-
-      <HeroText>
-        Viva experiências gastronômicas
-        <br />
-        no conforto da sua casa
-      </HeroText>
 
       <ListSection>
         <div className="container">
           <RestaurantList>
             {restaurants.map((restaurant) => (
-              <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+              <RestaurantCard
+                key={restaurant.id}
+                restaurant={restaurant}
+              />
             ))}
           </RestaurantList>
         </div>
