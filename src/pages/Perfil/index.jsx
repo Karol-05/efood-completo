@@ -17,7 +17,7 @@ import {
   ProductsList
 } from './styles'
 
-function Perfil({ cartItems, addToCart, openCart }) {
+function Perfil() {
   const { id } = useParams()
 
   const [restaurant, setRestaurant] = useState(null)
@@ -49,10 +49,7 @@ function Perfil({ cartItems, addToCart, openCart }) {
 
   return (
     <>
-      <HeaderBar
-        cartItems={cartItems}
-        openCart={openCart}
-      />
+      <HeaderBar />
 
       <Banner
         style={{
@@ -87,7 +84,6 @@ function Perfil({ cartItems, addToCart, openCart }) {
         <ProductModal
           product={selectedProduct}
           onClose={closeModal}
-          addToCart={addToCart}
         />
       )}
     </>

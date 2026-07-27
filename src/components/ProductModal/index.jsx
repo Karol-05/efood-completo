@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux'
+import { add } from '../../reducers/cart'
+
 import {
   Overlay,
   ModalContainer,
@@ -10,11 +13,13 @@ import {
   CloseButton
 } from './styles'
 
-function ProductModal({ product, onClose, addToCart }) {
+function ProductModal({ product, onClose }) {
+  const dispatch = useDispatch()
+
   if (!product) return null
 
   const handleAddToCart = () => {
-    addToCart(product)
+    dispatch(add(product))
     onClose()
   }
 
@@ -36,9 +41,8 @@ function ProductModal({ product, onClose, addToCart }) {
           <Portion>Serve: {product.porcao}</Portion>
 
           <AddButton onClick={handleAddToCart}>
-            Adicionar ao carrinho - R$ {product.preco
-              .toFixed(2)
-              .replace('.', ',')}
+            Adicionar ao carrinho - R${' '}
+            {product.preco.toFixed(2).replace('.', ',')}
           </AddButton>
         </Content>
       </ModalContainer>

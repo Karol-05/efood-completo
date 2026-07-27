@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { open } from '../../reducers/cart'
 import logo from '../../assets/images/logo.png'
+
 import {
   Bar,
   Container,
@@ -9,7 +13,11 @@ import {
   HeroText
 } from './styles'
 
-function HeaderBar({ home = false, cartItems = 0, openCart }) {
+function HeaderBar({ home = false }) {
+  const dispatch = useDispatch()
+
+  const { items } = useSelector((state) => state.cart)
+
   return (
     <Bar>
       <Container home={home}>
@@ -36,8 +44,8 @@ function HeaderBar({ home = false, cartItems = 0, openCart }) {
               <Logo src={logo} alt="eFood" />
             </Link>
 
-            <RightText onClick={openCart}>
-              {cartItems.length} produto(s) no carrinho
+            <RightText onClick={() => dispatch(open())}>
+              {items.length} produto(s) no carrinho
             </RightText>
           </>
         )}

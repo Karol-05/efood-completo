@@ -1,15 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import Home from '../pages/Home'
 import Perfil from '../pages/Perfil'
 
-function AppRoutes({ cartItems, addToCart }) {
+function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
         <Route
           path="/perfil/:id"
-          element={<Perfil cartItems={cartItems} addToCart={addToCart} />}
+          element={<Perfil />}
         />
       </Routes>
     </BrowserRouter>
