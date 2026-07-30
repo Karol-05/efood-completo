@@ -11,27 +11,45 @@ const cartSlice = createSlice({
   initialState,
 
   reducers: {
-    open(state) {
+    open: (state) => {
       state.isOpen = true
     },
 
-    close(state) {
+    close: (state) => {
       state.isOpen = false
     },
 
-    add(state, action) {
-      state.items.push(action.payload)
+    add: (state, action) => {
+      const item = state.items.find(
+        (product) => product.id === action.payload.id
+      )
+
+      if (!item) {
+        state.items.push(action.payload)
+      }
+
       state.isOpen = true
     },
 
-    remove(state, action) {
+    remove: (state, action) => {
       state.items = state.items.filter(
         (item) => item.id !== action.payload
       )
+    },
+
+    clear: (state) => {
+      state.items = []
+      state.isOpen = false
     }
   }
 })
 
-export const { open, close, add, remove } = cartSlice.actions
+export const {
+  open,
+  close,
+  add,
+  remove,
+  clear
+} = cartSlice.actions
 
 export default cartSlice.reducer

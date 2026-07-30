@@ -15,6 +15,7 @@ export const Sidebar = styled.aside`
   background-color: #e66767;
   padding: 32px 8px 16px;
   overflow-y: auto;
+  box-sizing: border-box;
 `
 
 export const CartItem = styled.div`
@@ -51,6 +52,7 @@ export const RemoveButton = styled.button`
   position: absolute;
   right: 8px;
   bottom: 8px;
+
   background: transparent;
   border: none;
   cursor: pointer;
@@ -59,14 +61,15 @@ export const RemoveButton = styled.button`
   img {
     width: 16px;
     height: 16px;
-    display: block;
   }
 `
 
 export const Total = styled.div`
   display: flex;
   justify-content: space-between;
+
   margin: 40px 0 16px;
+
   color: #ffebd9;
   font-size: 14px;
   font-weight: 700;
@@ -74,13 +77,107 @@ export const Total = styled.div`
 
 export const TotalValue = styled.span``
 
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+`
+
+
 export const CheckoutButton = styled.button`
   width: 100%;
-  height: 24px;
+  min-height: 32px;
+
   background-color: #ffebd9;
   color: #e66767;
+
   border: none;
+  cursor: pointer;
+
   font-size: 14px;
   font-weight: 700;
+`
+
+
+export const BackButton = styled.button`
+  width: 100%;
+  min-height: 32px;
+
+  background-color: transparent;
+  color: #ffebd9;
+
+  border: 1px solid #ffebd9;
+
   cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 700;
+`
+
+
+export const Title = styled.h3`
+  color: #ffebd9;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  margin-bottom: 16px;
+`
+
+
+export const Label = styled.label`
+  display: block;
+
+  color: #ffebd9;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  margin-bottom: 8px;
+  margin-top: 8px;
+`
+
+
+export const Input = styled.input`
+  width: 100%;
+  height: 32px;
+
+  background-color: #ffebd9;
+
+  border: none;
+
+  padding: 0 8px;
+
+  margin-bottom: 8px;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+  }
+`
+
+
+export const Row = styled.div`
+  display: flex;
+  gap: 8px;
+
+  > div {
+    flex: 1;
+  }
+`
+
+
+export const Text = styled.p`
+  color: #ffebd9;
+
+  font-size: 14px;
+
+  line-height: 22px;
+
+  margin-bottom: 24px;
 `
