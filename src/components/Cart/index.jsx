@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { IMaskInput } from 'react-imask'
 
 import API_URL from '../../services/api'
 
@@ -316,7 +317,7 @@ function Cart() {
 
               <TotalValue>
 
-                R$ {getTotalPrice()
+                R {getTotalPrice()
                   .toFixed(2)
                   .replace('.', ',')}
 
@@ -443,9 +444,12 @@ function Cart() {
 
             <Label>
               CEP
+                
             </Label>
 
             <Input
+            as={IMaskInput}
+            mask="00000-000"
 
               value={
                 delivery.zipCode
@@ -471,6 +475,7 @@ function Cart() {
             </Label>
 
             <Input
+            
 
               value={
                 delivery.number
@@ -521,17 +526,21 @@ function Cart() {
 
 
               <CheckoutButton
+                onClick={() => {
+                  if (
+                    !delivery.receiver ||
+                    !delivery.address ||
+                    delivery.zipCode.length !== 9 ||
+                    !delivery.city
+                  ) {
+                    alert('Preencha todos os campos corretamente!')
+                    return
+                  }
 
-                onClick={() =>
-                  setCurrentStep(
-                    'payment'
-                  )
-                }
-
+                  setCurrentStep('payment')
+                }}
               >
-
                 Continuar com pagamento
-
               </CheckoutButton>
 
 
@@ -609,6 +618,8 @@ function Cart() {
             </Label>
 
             <Input
+            as={IMaskInput}
+            mask="0000 0000 0000 0000"
 
               value={
                 payment.cardNumber
@@ -642,6 +653,8 @@ function Cart() {
 
 
                 <Input
+                as={IMaskInput}
+                mask="000"
 
                   value={
                     payment.cvv
@@ -675,6 +688,8 @@ function Cart() {
 
 
                 <Input
+                as={IMaskInput}
+                mask="00"
 
                   value={
                     payment.expiresMonth
@@ -710,6 +725,8 @@ function Cart() {
 
 
                 <Input
+                as={IMaskInput}
+                mask="0000"
 
                   value={
                     payment.expiresYear
@@ -743,15 +760,22 @@ function Cart() {
 
 
               <CheckoutButton
+                onClick={() => {
+                  if (
+                    !payment.cardName ||
+                    payment.cardNumber.length !== 19 ||
+                    payment.cvv.length !== 3 ||
+                    payment.expiresMonth.length !== 2 ||
+                    payment.expiresYear.length !== 4
+                  ) {
+                    alert('Preencha os dados do cartão corretamente!')
+                    return
+                  }
 
-                onClick={
-                  finishOrder
-                }
-
+                  setCurrentStep('confirmation')
+                }}
               >
-
                 Finalizar pagamento
-
               </CheckoutButton>
 
 
