@@ -760,23 +760,23 @@ function Cart() {
 
 
               <CheckoutButton
-                onClick={() => {
-                  if (
-                    !payment.cardName ||
-                    payment.cardNumber.length !== 19 ||
-                    payment.cvv.length !== 3 ||
-                    payment.expiresMonth.length !== 2 ||
-                    payment.expiresYear.length !== 4
-                  ) {
-                    alert('Preencha os dados do cartão corretamente!')
-                    return
-                  }
+  onClick={() => {
+    if (
+      !payment.cardName ||
+      payment.cardNumber.length !== 19 ||
+      payment.cvv.length !== 3 ||
+      payment.expiresMonth.length !== 2 ||
+      payment.expiresYear.length !== 4
+    ) {
+      alert('Preencha os dados do cartão corretamente!')
+      return
+    }
 
-                  setCurrentStep('confirmation')
-                }}
-              >
-                Finalizar pagamento
-              </CheckoutButton>
+    finishOrder()
+  }}
+>
+  Finalizar pagamento
+</CheckoutButton>
 
 
 
